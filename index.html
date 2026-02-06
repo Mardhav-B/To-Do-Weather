@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Task Manager</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Task Manager</h1>
+    <button id="addBtn">+ Add Task</button>
+  </header>
+
+  <section id="home" class="dashboard">
+    <div class="column">
+      <h2>To Do</h2>
+      <div id="todoList" class="task-list"></div>
+    </div>
+
+    <div class="column">
+      <h2>In Progress</h2>
+      <div id="inprogressList" class="task-list"></div>
+    </div>
+
+    <div class="column">
+      <h2>Done</h2>
+      <div id="doneList" class="task-list"></div>
+    </div>
+
+    <div class="column">
+      <h2>Pending</h2>
+      <div id="pendingList" class="task-list"></div>
+    </div>
+  </section>
+
+  <!-- Modals -->
+  <div class="modal" id="modalAdd">
+    <div class="modal-box">
+      <h3>Add New Task</h3>
+      <input type="text" id="descAdd" placeholder="Task description">
+      <input type="datetime-local" id="endTimeAdd">
+      <button class="save" onclick="saveTask()">Save</button>
+      <button class="cancel" onclick="closeModal('modalAdd')">Cancel</button>
+    </div>
+  </div>
+
+  <div class="modal" id="modalEdit">
+    <div class="modal-box">
+      <h3>Edit Task</h3>
+      <input type="text" id="descEdit">
+      <input type="datetime-local" id="endTimeEdit">
+      <select id="statusEdit">
+        <option value="todo">To Do</option>
+        <option value="inprogress">In Progress</option>
+        <option value="done">Done</option>
+        <option value="pending">Pending</option>
+      </select>
+      <button class="update" onclick="updateTask()">Update</button>
+      <button class="delete" onclick="deleteTask()">Delete</button>
+      <button class="cancel" onclick="closeModal('modalEdit')">Cancel</button>
+    </div>
+  </div>
+
+  <div class="bottom-section">
+    <div class="info-box" id="githubBox">
+      <h3>GitHub Profile</h3>
+      <div id="githubContent">Loading...</div>
+    </div>
+
+    <div class="info-box" id="weatherBox">
+      <h3>Weather</h3>
+      <select id="citySelect">
+        <option value="Chennai" selected>Chennai</option>
+        <option value="Bangalore">Bangalore</option>
+        <option value="Mumbai">Mumbai</option>
+      </select>
+      <div id="weatherContent">Loading...</div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
